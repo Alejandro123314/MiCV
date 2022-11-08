@@ -1,4 +1,4 @@
-package dad.MiCV;
+package dad.MiCV.model;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;

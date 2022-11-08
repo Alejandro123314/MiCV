@@ -1,11 +1,17 @@
-package dad.MiCV;
+package dad.MiCV.model;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Nacionalidad {
-	
+		
 	private StringProperty denominacion = new SimpleStringProperty();
+	
+	public Nacionalidad() {}
+	
+	Nacionalidad(String denominacion){
+		setDenominacion(denominacion);
+	}
 
 	public final StringProperty denominacionProperty() {
 		return this.denominacion;
@@ -21,6 +27,13 @@ public class Nacionalidad {
 		this.denominacionProperty().set(denominacion);
 	}
 	 
+	@Override
+	public String toString() {
+		return getDenominacion();
+		
+	}
+	
+	
 	
 	
 
