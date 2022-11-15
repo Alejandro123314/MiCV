@@ -16,7 +16,7 @@ public class App extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		URI uri = App.class.getResource("csvnacionalidades.csv/").toURI();
+		/*URI uri = App.class.getResource("csvnacionalidades.csv/").toURI();
 		List<String> items =Files.readAllLines(Paths.get(uri), StandardCharsets.UTF_8);
 		List<Nacionalidad> nacionaliades = items.stream()
 					.map(Nacionalidad::new)
@@ -29,7 +29,7 @@ public class App extends Application {
 		dialog.setHeaderText("Elige una opción");
 		dialog.setContentText("Opción:");
 		Nacionalidad n = dialog.showAndWait().orElse(null);
-		System.out.println(n);
+		System.out.println(n);*/
 	}
 
 	public static void main(String[] args) {
