@@ -10,31 +10,31 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+      <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
          <tabs>
-            <Tab text="Personal">
+            <Tab fx:id="personalTab" text="Personal">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
             </Tab>
-            <Tab text="Contacto">
+            <Tab fx:id="contactoTab" text="Contacto">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
             </Tab>
-            <Tab text="Formación">
+            <Tab fx:id="formacionTab" text="Formación">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
             </Tab>
-            <Tab text="Experiencia">
+            <Tab fx:id="experienciaTab" text="Experiencia">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
             </Tab>
-            <Tab text="Conocimientos">
+            <Tab fx:id="conocimientosTab" text="Conocimientos">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
@@ -43,9 +43,9 @@
       </TabPane>
    </center>
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
+      <MenuBar fx:id="menuBar" BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="Archivo">
+          <Menu fx:id="archivoMenu" mnemonicParsing="false" text="Archivo">
             <items>
               <MenuItem mnemonicParsing="false" text="Nuevo">
                      <accelerator>
@@ -70,7 +70,7 @@
                   </MenuItem>
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Ayuda">
+          <Menu fx:id="AyudaMenu" mnemonicParsing="false" text="Ayuda">
             <items>
               <MenuItem mnemonicParsing="false" text="Acerca de..." />
             </items>

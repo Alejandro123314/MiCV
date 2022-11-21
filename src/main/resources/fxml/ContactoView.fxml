@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <center>
+            <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Número" />
+                <TableColumn prefWidth="75.0" text="Tipo" />
+              </columns>
+               <BorderPane.margin>
+                  <Insets left="5.0" right="5.0" top="5.0" />
+               </BorderPane.margin>
+            </TableView>
+         </center>
+         <right>
+            <VBox prefHeight="200.0" spacing="5.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir">
+                     <VBox.margin>
+                        <Insets right="5.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Eliminar">
+                     <VBox.margin>
+                        <Insets right="5.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </BorderPane.margin>
+            </VBox>
+         </right>
+         <top>
+            <TitledPane animated="false" collapsible="false" expanded="false" text="Teléfonos" BorderPane.alignment="CENTER">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </TitledPane>
+         </top>
+      </BorderPane>
+      <Separator minHeight="10.0" prefWidth="200.0" />
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <center>
+            <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="E-mail" />
+               </columns>
+               <BorderPane.margin>
+                  <Insets left="5.0" right="5.0" top="5.0" />
+               </BorderPane.margin>
+            </TableView>
+         </center>
+         <right>
+            <VBox prefHeight="200.0" spacing="5.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir">
+                     <VBox.margin>
+                        <Insets right="5.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Eliminar">
+                     <VBox.margin>
+                        <Insets right="5.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </BorderPane.margin>
+            </VBox>
+         </right>
+         <top>
+            <TitledPane animated="false" collapsible="false" expanded="false" text="Direcciones de correo" BorderPane.alignment="CENTER">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </TitledPane>
+         </top>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </BorderPane>
+      <Separator minHeight="10.0" prefWidth="200.0" />
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <center>
+            <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <columns>
+                  <TableColumn text="URL" />
+               </columns>
+               <BorderPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </BorderPane.margin>
+            </TableView>
+         </center>
+         <right>
+            <VBox prefHeight="200.0" spacing="5.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir">
+                     <VBox.margin>
+                        <Insets right="5.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Eliminar">
+                     <VBox.margin>
+                        <Insets right="5.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </BorderPane.margin>
+            </VBox>
+         </right>
+         <top>
+            <TitledPane animated="false" collapsible="false" expanded="false" text="Webs" BorderPane.alignment="CENTER">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </TitledPane>
+         </top>
+      </BorderPane>
+   </children>
+</VBox>
