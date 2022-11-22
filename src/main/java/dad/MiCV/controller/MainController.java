@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,6 +18,11 @@ import javafx.scene.layout.BorderPane;
 public class MainController implements Initializable {
 	
 	
+	ObjectProperty<PersonalController>personal = new SimpleObjectProperty<>();
+	ObjectProperty<ContactoController>cotacto = new SimpleObjectProperty<>();
+	ObjectProperty<FormacionController>formacion = new SimpleObjectProperty<>();
+	ObjectProperty<ExperienciaController>experiencia = new SimpleObjectProperty<>();
+	ObjectProperty<PersonalController>nacional = new SimpleObjectProperty<>();
 	
 	
 	 @FXML
@@ -57,7 +64,8 @@ public class MainController implements Initializable {
 
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {
-			// TODO Auto-generated method stub
+			
+			
 			
 		}
 		
