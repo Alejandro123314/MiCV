@@ -10,16 +10,18 @@ import javafx.stage.Window;
 
 public class App extends Application {
 
-	MainController mController;
+	MainController mainController;
 
 	public static Window primaryStage;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		
+		mainController = new MainController();		
 		App.primaryStage = primaryStage;
 
 		primaryStage.setTitle("Ahorcado");
-		primaryStage.setScene(new Scene(mController.getView()));
+		primaryStage.setScene(new Scene(mainController.getView()));
 		primaryStage.show();
 
 	}

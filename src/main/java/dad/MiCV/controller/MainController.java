@@ -16,62 +16,68 @@ import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
 
 public class MainController implements Initializable {
-	
-	
-	ObjectProperty<PersonalController>personal = new SimpleObjectProperty<>();
-	ObjectProperty<ContactoController>cotacto = new SimpleObjectProperty<>();
-	ObjectProperty<FormacionController>formacion = new SimpleObjectProperty<>();
-	ObjectProperty<ExperienciaController>experiencia = new SimpleObjectProperty<>();
-	ObjectProperty<PersonalController>nacional = new SimpleObjectProperty<>();
-	
-	
-	 @FXML
-	    private Menu AyudaMenu;
 
-	    @FXML
-	    private Menu archivoMenu;
+	PersonalController personalController = new PersonalController();
+	FormacionController formacionController = new FormacionController();
+	ContactoController contactoController = new ContactoController();
+	ExperienciaController experienciaController = new ExperienciaController();
+	ConocimientosController conocimientosController = new ConocimientosController();
 
-	    @FXML
-	    private Tab conocimientosTab;
+	@FXML
+	private Menu AyudaMenu;
 
-	    @FXML
-	    private Tab contactoTab;
+	@FXML
+	private Menu archivoMenu;
 
-	    @FXML
-	    private Tab experienciaTab;
+	@FXML
+	private Tab conocimientosTab;
 
-	    @FXML
-	    private Tab formacionTab;
+	@FXML
+	private Tab contactoTab;
 
-	    @FXML
-	    private MenuBar menuBar;
+	@FXML
+	private Tab experienciaTab;
 
-	    @FXML
-	    private Tab personalTab;
+	@FXML
+	private Tab formacionTab;
 
-	    @FXML
-	    private BorderPane root;
+	@FXML
+	private MenuBar menuBar;
 
-	    @FXML
-	    private TabPane tabPane;
-	    
-	    public MainController() throws IOException {
-	    	
-	    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MainView.fxml"));
+	@FXML
+	private Tab personalTab;
+
+	@FXML
+	private BorderPane root;
+
+	@FXML
+	private TabPane tabPane;
+
+	public MainController() throws IOException {
+
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MainView.fxml"));
 			loader.setController(this);
 			loader.load();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
 		}
+	}
 
-		@Override
-		public void initialize(URL location, ResourceBundle resources) {
-			
-			
-			
-		}
-		
-		public TabPane getView() {
-			return tabPane;
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
 
-		}
+		conocimientosTab.setContent(conocimientosController.getView);
+		personalTab.setContent(personalController.getView);
+		contactoTab.setContent(contactoController.getView);
+		experienciaTab.setContent(experienciaController.getView);
+		formacionTab.setContent(formacionController.getView);
+
+	}
+
+	public TabPane getView() {
+		return tabPane;
+
+	}
 
 }
