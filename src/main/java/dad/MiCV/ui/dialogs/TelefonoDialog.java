@@ -3,9 +3,9 @@ package dad.MiCV.ui.dialogs;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
- 
-import dad.MiCV.model.Telefono;
-import dad.MiCV.model.TipoTelefono;
+
+import dad.MiCV.contacto.Telefono;
+import dad.MiCV.contacto.TipoTelefono;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;

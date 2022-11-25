@@ -4,6 +4,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import dad.MiCV.conocimiento.ConocimientosController;
+import dad.MiCV.contacto.ContactoController;
+import dad.MiCV.experiencia.ExperienciaController;
+import dad.MiCV.formacion.FormacionController;
+import dad.MiCV.personal.PersonalController;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;

@@ -1,4 +1,4 @@
-package dad.MiCV.model;
+package dad.MiCV.conocimiento;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;

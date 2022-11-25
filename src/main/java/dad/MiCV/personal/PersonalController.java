@@ -1,4 +1,4 @@
-package dad.MiCV.controller;
+package dad.MiCV.personal;
 
 import java.io.IOException;
 import java.net.URL;

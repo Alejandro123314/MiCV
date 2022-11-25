@@ -1,4 +1,4 @@
-package dad.MiCV.controller;
+package dad.MiCV.contacto;
 
 import java.io.IOException;
 import java.net.URL;
@@ -7,11 +7,11 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
-public class ExperienciaController implements Initializable {
+public class ContactoController implements Initializable {
 
-	public ExperienciaController() {
+	public ContactoController() {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ExperienciaView.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ContactoView.fxml"));
 			loader.setController(this);
 			loader.load();
 		} catch (IOException e) {

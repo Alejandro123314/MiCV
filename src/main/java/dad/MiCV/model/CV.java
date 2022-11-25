@@ -1,5 +1,10 @@
 package dad.MiCV.model;
 
+import dad.MiCV.conocimiento.Conocimiento;
+import dad.MiCV.contacto.Contacto;
+import dad.MiCV.experiencia.Experiencia;
+import dad.MiCV.formacion.Titulo;
+import dad.MiCV.personal.Personal;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 

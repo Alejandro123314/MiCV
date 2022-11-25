@@ -1,4 +1,4 @@
-package dad.MiCV.model;
+package dad.MiCV.experiencia;
 
 import java.time.LocalDate;
 

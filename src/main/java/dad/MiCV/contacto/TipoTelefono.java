@@ -1,4 +1,4 @@
-package dad.MiCV.model;
+package dad.MiCV.contacto;
 
 public enum TipoTelefono {
 	
