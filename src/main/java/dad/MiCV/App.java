@@ -12,7 +12,7 @@ public class App extends Application {
 
 	MainController mainController;
 
-	public static Window primaryStage;
+	public static Stage primaryStage;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {

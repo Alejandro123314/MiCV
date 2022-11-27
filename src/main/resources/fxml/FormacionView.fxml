@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17">
+<GridPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="NEVER" />
@@ -17,7 +17,7 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <TableView>
+      <TableView fx:id="formacionTableView">
         <columns>
           <TableColumn prefWidth="75.0" text="Desde" />
           <TableColumn prefWidth="75.0" text="Hasta" />
@@ -28,12 +28,12 @@
             <Insets bottom="5.0" left="5.0" top="5.0" />
          </GridPane.margin>
       </TableView>
-      <Button mnemonicParsing="false" prefWidth="60.0" text="Añadir" GridPane.columnIndex="1" GridPane.valignment="TOP">
+      <Button fx:id="addButton" mnemonicParsing="false" prefWidth="60.0" text="Añadir" GridPane.columnIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Button>
-      <Button mnemonicParsing="false" prefWidth="60.0" text="Eliminar" GridPane.columnIndex="1" GridPane.valignment="TOP">
+      <Button fx:id="eliminarButton" mnemonicParsing="false" prefWidth="60.0" text="Eliminar" GridPane.columnIndex="1" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets left="5.0" right="5.0" top="35.0" />
          </GridPane.margin>

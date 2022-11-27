@@ -1,6 +1,6 @@
 package dad.MiCV.conocimiento;
 
-public enum Nivel {
+public enum Niveles {
 
 	BASICO, MEDIO, AVANZADO;
 }

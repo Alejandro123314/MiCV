@@ -19,8 +19,9 @@ public class Personal {
 	private StringProperty codigoPostal = new SimpleStringProperty();
 	private StringProperty loacalidad = new SimpleStringProperty();
 	private StringProperty pais = new SimpleStringProperty();
-	private ObjectProperty<LocalDate> fechaNacimiento = new SimpleObjectProperty<>();
+	private ObjectProperty<LocalDate> fechaNacimiento = new SimpleObjectProperty<>( LocalDate.now());
 	private ListProperty<Nacionalidad> nacionalidades = new SimpleListProperty<>();
+	
 	public final StringProperty identificaionProperty() {
 		return this.identificaion;
 	}

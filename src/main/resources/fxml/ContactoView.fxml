@@ -10,12 +10,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <center>
-            <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="telefonoTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <columns>
                 <TableColumn prefWidth="75.0" text="Número" />
                 <TableColumn prefWidth="75.0" text="Tipo" />
@@ -28,12 +27,12 @@
          <right>
             <VBox prefHeight="200.0" spacing="5.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir">
+                  <Button fx:id="addTelefonoButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir">
                      <VBox.margin>
                         <Insets right="5.0" />
                      </VBox.margin>
                   </Button>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Eliminar">
+                  <Button fx:id="eliminarTelefonoButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Eliminar">
                      <VBox.margin>
                         <Insets right="5.0" />
                      </VBox.margin>
@@ -58,7 +57,7 @@
       <Separator minHeight="10.0" prefWidth="200.0" />
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <center>
-            <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="emailTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <columns>
                   <TableColumn prefWidth="75.0" text="E-mail" />
                </columns>
@@ -70,12 +69,12 @@
          <right>
             <VBox prefHeight="200.0" spacing="5.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir">
+                  <Button fx:id="addEmailButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir">
                      <VBox.margin>
                         <Insets right="5.0" />
                      </VBox.margin>
                   </Button>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Eliminar">
+                  <Button fx:id="eliminarEmailButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Eliminar">
                      <VBox.margin>
                         <Insets right="5.0" />
                      </VBox.margin>
@@ -103,7 +102,7 @@
       <Separator minHeight="10.0" prefWidth="200.0" />
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <center>
-            <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="webTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <columns>
                   <TableColumn text="URL" />
                </columns>
@@ -115,12 +114,12 @@
          <right>
             <VBox prefHeight="200.0" spacing="5.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir">
+                  <Button fx:id="addWebButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir">
                      <VBox.margin>
                         <Insets right="5.0" />
                      </VBox.margin>
                   </Button>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Eliminar">
+                  <Button fx:id="eliminarWebButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Eliminar">
                      <VBox.margin>
                         <Insets right="5.0" />
                      </VBox.margin>
