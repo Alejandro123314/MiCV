@@ -14,10 +14,10 @@
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <center>
-            <TableView fx:id="telefonoTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="telefonoTableView" editable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn prefWidth="75.0" text="Número" />
-                <TableColumn prefWidth="75.0" text="Tipo" />
+                <TableColumn fx:id="numeroColumn" prefWidth="75.0" text="Número" />
+                <TableColumn fx:id="tipoColumn" prefWidth="75.0" text="Tipo" />
               </columns>
                <BorderPane.margin>
                   <Insets left="5.0" right="5.0" top="5.0" />
@@ -57,9 +57,9 @@
       <Separator minHeight="10.0" prefWidth="200.0" />
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <center>
-            <TableView fx:id="emailTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="emailTableView" editable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <columns>
-                  <TableColumn prefWidth="75.0" text="E-mail" />
+                  <TableColumn fx:id="emailColumn" prefWidth="75.0" text="E-mail" />
                </columns>
                <BorderPane.margin>
                   <Insets left="5.0" right="5.0" top="5.0" />
@@ -102,9 +102,9 @@
       <Separator minHeight="10.0" prefWidth="200.0" />
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <center>
-            <TableView fx:id="webTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="webTableView" editable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <columns>
-                  <TableColumn text="URL" />
+                  <TableColumn fx:id="urlColumn" text="URL" />
                </columns>
                <BorderPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

@@ -2,6 +2,7 @@ package dad.MiCV.personal;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -33,9 +34,9 @@ public class PersonalController implements Initializable {
 	private ObservableList<String> paises = FXCollections.observableArrayList();
 	private StringProperty paisSeleccionado = new SimpleStringProperty();
 	
-	private ListProperty<Nacionalidad> nacionalidades = new SimpleListProperty<>();
+	private ListProperty<Nacionalidad> nacionalidades = new SimpleListProperty<>(FXCollections.observableList(new ArrayList<Nacionalidad>()));
 	private ObjectProperty<Nacionalidad> nacionalidadSeleccionado = new SimpleObjectProperty<Nacionalidad>();
-	private ListProperty<Nacionalidad> todasNacionalidades = new SimpleListProperty<>();
+	private ListProperty<Nacionalidad> todasNacionalidades = new SimpleListProperty<>(FXCollections.observableList(new ArrayList<Nacionalidad>()));
 	@FXML
 	private TextField apellidosTextField;
 
@@ -86,6 +87,9 @@ public class PersonalController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
+		todasNacionalidades.add(new Nacionalidad("prueba"));
+		todasNacionalidades.add(new Nacionalidad("prueba2"));
+		//borrar
 		dniTextField.textProperty().bindBidirectional(personal.get().identificaionProperty());
 		nombreTextField.textProperty().bindBidirectional(personal.get().nombreProperty());
 		apellidosTextField.textProperty().bindBidirectional(personal.get().apellidosProperty());
@@ -107,8 +111,8 @@ public class PersonalController implements Initializable {
 	}
 
 	private void add(ActionEvent e) {
-		ChoiceDialog<Nacionalidad> dialogo = new ChoiceDialog<>();
-//		dialogo. llenar
+		ChoiceDialog<Nacionalidad> dialogo = new ChoiceDialog<>(todasNacionalidades.get(0), todasNacionalidades);
+		
 		dialogo.setTitle("Nueva Nacionalidad");
 		dialogo.setHeaderText("Añadir nacionalidad");
 		dialogo.setContentText("Seleccione una nacionalidad");
@@ -120,7 +124,12 @@ public class PersonalController implements Initializable {
 
 	private void eliminar(ActionEvent e) {
 		if(nacionalidadSeleccionado.get() != null) {
-			nacionalidades.remove(nacionalidadSeleccionado);
+			for (int i = 0; i < nacionalidades.size(); i++) {
+				if(nacionalidadSeleccionado.get().getDenominacion().equalsIgnoreCase(nacionalidades.get(i).getDenominacion())) {
+					nacionalidades.remove(i);
+				}			
+			}
+			
 		}
 	}
 

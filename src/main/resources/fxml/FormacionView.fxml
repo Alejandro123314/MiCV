@@ -19,10 +19,10 @@
    <children>
       <TableView fx:id="formacionTableView">
         <columns>
-          <TableColumn prefWidth="75.0" text="Desde" />
-          <TableColumn prefWidth="75.0" text="Hasta" />
-            <TableColumn prefWidth="100.0" text="Denominación" />
-            <TableColumn prefWidth="75.0" text="Organizador" />
+          <TableColumn fx:id="desdeColumn" prefWidth="75.0" text="Desde" />
+          <TableColumn fx:id="hastaColumn" prefWidth="75.0" text="Hasta" />
+            <TableColumn fx:id="denominacionColumn" prefWidth="100.0" text="Denominación" />
+            <TableColumn fx:id="organizadorColumn" prefWidth="75.0" text="Organizador" />
         </columns>
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" top="5.0" />

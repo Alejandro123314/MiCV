@@ -1,36 +1,57 @@
 package dad.MiCV.contacto;
 
+import java.util.ArrayList;
+
+import dad.MiCV.personal.Nacionalidad;
+import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Contacto {
 
-	private ObjectProperty<Telefono> telefonos = new SimpleObjectProperty<>();
-	private ObjectProperty<Email> emails = new SimpleObjectProperty<>();
-	private ObjectProperty<Web> webs = new SimpleObjectProperty<>();
-
-	public ObjectProperty<Web> getWebs() {
-		return webs;
+	private ListProperty<Telefono> telefonos = new SimpleListProperty<Telefono>(FXCollections.observableList(new ArrayList<Telefono>()));
+	private ListProperty<Email> emails = new SimpleListProperty<Email>(FXCollections.observableList(new ArrayList<Email>()));
+	private ListProperty<Web> webs = new SimpleListProperty<Web>(FXCollections.observableList(new ArrayList<Web>()));
+	public final ListProperty<Telefono> telefonosProperty() {
+		return this.telefonos;
 	}
-
-	public void setWebs(ObjectProperty<Web> webs) {
-		this.webs = webs;
+	
+	public final ObservableList<Telefono> getTelefonos() {
+		return this.telefonosProperty().get();
 	}
-
-	public ObjectProperty<Email> getEmails() {
-		return emails;
+	
+	public final void setTelefonos(final ObservableList<Telefono> telefonos) {
+		this.telefonosProperty().set(telefonos);
 	}
-
-	public void setEmails(ObjectProperty<Email> emails) {
-		this.emails = emails;
+	
+	public final ListProperty<Email> emailsProperty() {
+		return this.emails;
 	}
-
-	public ObjectProperty<Telefono> getTelefonos() {
-		return telefonos;
+	
+	public final ObservableList<Email> getEmails() {
+		return this.emailsProperty().get();
 	}
-
-	public void setTelefonos(ObjectProperty<Telefono> telefonos) {
-		this.telefonos = telefonos;
+	
+	public final void setEmails(final ObservableList<Email> emails) {
+		this.emailsProperty().set(emails);
 	}
+	
+	public final ListProperty<Web> websProperty() {
+		return this.webs;
+	}
+	
+	public final ObservableList<Web> getWebs() {
+		return this.websProperty().get();
+	}
+	
+	public final void setWebs(final ObservableList<Web> webs) {
+		this.websProperty().set(webs);
+	}
+	
+
+
 
 }
