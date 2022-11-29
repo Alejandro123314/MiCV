@@ -1,4 +1,4 @@
-package dad.MiCV.formacion;
+package dad.MiCV.experiencia;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,97 +16,108 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
-public class NuevoTituloController implements Initializable {
-
+public class NuevaExperienciaController implements Initializable {
+	
 	StringProperty denominacion = new SimpleStringProperty();
-	StringProperty organizador = new SimpleStringProperty();
+	StringProperty empleador = new SimpleStringProperty();
 	ObjectProperty<LocalDate> desde = new SimpleObjectProperty<LocalDate>();
 	ObjectProperty<LocalDate> hasta = new SimpleObjectProperty<LocalDate>();
-
+	
 	@FXML
-	private TextField denominacionTextField;
+    private TextField denominacionTextField;
 
-	@FXML
-	private DatePicker desdeDatePicker;
+    @FXML
+    private DatePicker desdeDatePicker;
 
-	@FXML
-	private DatePicker hastaDatePicker;
+    @FXML
+    private TextField empleadorTextField;
 
-	@FXML
-	private TextField organizadorTextField;
+    @FXML
+    private DatePicker hastaDatePicker;
 
-	@FXML
-	private GridPane root;
-
-	public NuevoTituloController() {
-
-		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/NuevoTitulo.fxml"));
+    @FXML
+    private GridPane root;
+    
+    public NuevaExperienciaController() {
+    	try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/NuevoExperiencia.fxml"));
 			loader.setController(this);
 			loader.load();
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
 	}
-
-	@Override
+    
+    @Override
 	public void initialize(URL location, ResourceBundle resources) {
-		denominacion.bind(denominacionTextField.textProperty());
-		organizador.bind(organizadorTextField.textProperty());
+    	denominacion.bind(denominacionTextField.textProperty());
+		empleador.bind(empleadorTextField.textProperty());
 		desde.bind(desdeDatePicker.valueProperty());
 		hasta.bind(hastaDatePicker.valueProperty());
-	}
-
-	public GridPane getRoot() {
-		return root;
+		
 	}
 
 	public final StringProperty denominacionProperty() {
 		return this.denominacion;
 	}
+	
 
 	public final String getDenominacion() {
 		return this.denominacionProperty().get();
 	}
+	
 
 	public final void setDenominacion(final String denominacion) {
 		this.denominacionProperty().set(denominacion);
 	}
+	
 
-	public final StringProperty organizadorProperty() {
-		return this.organizador;
+	public final StringProperty empleadorProperty() {
+		return this.empleador;
 	}
+	
 
-	public final String getOrganizador() {
-		return this.organizadorProperty().get();
+	public final String getEmpleador() {
+		return this.empleadorProperty().get();
 	}
+	
 
-	public final void setOrganizador(final String organizador) {
-		this.organizadorProperty().set(organizador);
+	public final void setEmpleador(final String empleador) {
+		this.empleadorProperty().set(empleador);
 	}
+	
 
 	public final ObjectProperty<LocalDate> desdeProperty() {
 		return this.desde;
 	}
+	
 
 	public final LocalDate getDesde() {
 		return this.desdeProperty().get();
 	}
+	
 
 	public final void setDesde(final LocalDate desde) {
 		this.desdeProperty().set(desde);
 	}
+	
 
 	public final ObjectProperty<LocalDate> hastaProperty() {
 		return this.hasta;
 	}
+	
 
 	public final LocalDate getHasta() {
 		return this.hastaProperty().get();
 	}
+	
 
 	public final void setHasta(final LocalDate hasta) {
 		this.hastaProperty().set(hasta);
 	}
+
+	
+	
+
 
 }

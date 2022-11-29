@@ -13,53 +13,34 @@ public class Experiencia {
 	private ObjectProperty<LocalDate> hasta = new SimpleObjectProperty<>();
 	private StringProperty denominacion = new SimpleStringProperty();
 	private StringProperty empleador = new SimpleStringProperty();
-
-	public final ObjectProperty<LocalDate> desdeProperty() {
-		return this.desde;
+	public ObjectProperty<LocalDate> getDesde() {
+		return desde;
 	}
-
-	public final LocalDate getDesde() {
-		return this.desdeProperty().get();
+	public void setDesde(ObjectProperty<LocalDate> desde) {
+		this.desde = desde;
 	}
-
-	public final void setDesde(final LocalDate desde) {
-		this.desdeProperty().set(desde);
+	public ObjectProperty<LocalDate> getHasta() {
+		return hasta;
 	}
-
-	public final ObjectProperty<LocalDate> hastaProperty() {
-		return this.hasta;
+	public void setHasta(ObjectProperty<LocalDate> hasta) {
+		this.hasta = hasta;
 	}
-
-	public final LocalDate getHasta() {
-		return this.hastaProperty().get();
+	public StringProperty getDenominacion() {
+		return denominacion;
 	}
-
-	public final void setHasta(final LocalDate hasta) {
-		this.hastaProperty().set(hasta);
+	public void setDenominacion(StringProperty denominacion) {
+		this.denominacion = denominacion;
 	}
-
-	public final StringProperty denominacionProperty() {
-		return this.denominacion;
+	public StringProperty getEmpleador() {
+		return empleador;
 	}
-
-	public final String getDenominacion() {
-		return this.denominacionProperty().get();
+	public void setEmpleador(StringProperty empleador) {
+		this.empleador = empleador;
 	}
+	
+	
+	
 
-	public final void setDenominacion(final String denominacion) {
-		this.denominacionProperty().set(denominacion);
-	}
-
-	public final StringProperty empleadorProperty() {
-		return this.empleador;
-	}
-
-	public final String getEmpleador() {
-		return this.empleadorProperty().get();
-	}
-
-	public final void setEmpleador(final String empleador) {
-		this.empleadorProperty().set(empleador);
-	}
+	
 
 }

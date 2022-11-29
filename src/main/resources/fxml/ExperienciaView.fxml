@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
       <ColumnConstraints hgrow="NEVER" />
@@ -17,12 +17,12 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <TableView>
+      <TableView fx:id="experienciaTableView">
          <columns>
-            <TableColumn prefWidth="75.0" text="Desde" />
-            <TableColumn prefWidth="75.0" text="Hasta" />
-            <TableColumn prefWidth="100.0" text="Denominación" />
-            <TableColumn prefWidth="75.0" text="Empleador" />
+            <TableColumn fx:id="desdeColumn" prefWidth="75.0" text="Desde" />
+            <TableColumn fx:id="hastaColumn" prefWidth="75.0" text="Hasta" />
+            <TableColumn fx:id="denominacionColumn" prefWidth="100.0" text="Denominación" />
+            <TableColumn fx:id="empleadorColumn" prefWidth="75.0" text="Empleador" />
          </columns>
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" top="5.0" />
