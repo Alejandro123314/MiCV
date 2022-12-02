@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import dad.MiCV.App;
 import dad.MiCV.contacto.Telefono;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
@@ -69,6 +70,8 @@ public class FormacionController implements Initializable {
 			throw new RuntimeException(e);
 		}
 	}
+	
+		
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -99,14 +102,8 @@ public class FormacionController implements Initializable {
 
 	private void aniadir(ActionEvent e) {
 		NuevoTituloController controller = new NuevoTituloController();
-		Dialog<Titulo> dialogo = new Dialog();
-		dialogo.setTitle("Nuevo titulo");
-		
-		ButtonType aceptarButton = new ButtonType("Crear",ButtonData.OK_DONE);
-		dialogo.getDialogPane().getButtonTypes().addAll(aceptarButton, ButtonType.CANCEL);
-		
-		dialogo.getDialogPane().setContent(controller.getRoot());
-		Optional<Titulo> resultado = dialogo.showAndWait();
+		controller.show();
+		titulos.add(controller.getTitulo());
 	}
 
 	public GridPane getRoot() {

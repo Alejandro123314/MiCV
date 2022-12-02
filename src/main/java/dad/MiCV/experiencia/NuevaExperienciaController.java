@@ -5,42 +5,54 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+import dad.MiCV.App;
+import dad.MiCV.formacion.Titulo;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class NuevaExperienciaController implements Initializable {
 	
-	StringProperty denominacion = new SimpleStringProperty();
-	StringProperty empleador = new SimpleStringProperty();
-	ObjectProperty<LocalDate> desde = new SimpleObjectProperty<LocalDate>();
-	ObjectProperty<LocalDate> hasta = new SimpleObjectProperty<LocalDate>();
+	ObjectProperty<Experiencia> experiencia = new SimpleObjectProperty<Experiencia>(new Experiencia());
 	
-	@FXML
-    private TextField denominacionTextField;
+	  @FXML
+	    private Button cancelarButton;
 
-    @FXML
-    private DatePicker desdeDatePicker;
+	    @FXML
+	    private TextField denominacionTextField;
 
-    @FXML
-    private TextField empleadorTextField;
+	    @FXML
+	    private DatePicker desdeDatePicker;
 
-    @FXML
-    private DatePicker hastaDatePicker;
+	    @FXML
+	    private TextField empleadorTextField;
 
-    @FXML
-    private GridPane root;
+	    @FXML
+	    private DatePicker hastaDatePicker;
+
+	    @FXML
+	    private Button okButton;
+
+	    @FXML
+	    private DialogPane root;
+
+	    private Stage stage;
     
     public NuevaExperienciaController() {
     	try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/NuevoExperiencia.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/NuevaExperiencia.fxml"));
 			loader.setController(this);
 			loader.load();
 		} catch (IOException e) {
@@ -50,70 +62,49 @@ public class NuevaExperienciaController implements Initializable {
     
     @Override
 	public void initialize(URL location, ResourceBundle resources) {
-    	denominacion.bind(denominacionTextField.textProperty());
-		empleador.bind(empleadorTextField.textProperty());
-		desde.bind(desdeDatePicker.valueProperty());
-		hasta.bind(hastaDatePicker.valueProperty());
+    	experiencia.get().getDenominacion().bind(denominacionTextField.textProperty());
+    	experiencia.get().getEmpleador().bind(empleadorTextField.textProperty());
+    	experiencia.get().getDesde().bind(desdeDatePicker.valueProperty());
+    	experiencia.get().getHasta().bind(hastaDatePicker.valueProperty());
+    	
+    	okButton.setOnAction(e -> onOkButton(e));
+		cancelarButton.setOnAction(e -> onCancelarButton(e));
+		
+		stage = new Stage();
+		stage.setTitle("Nueva experiencia");
+		stage.setScene(new Scene(getView()));
+		stage.initOwner(App.primaryStage);
+		stage.initModality(Modality.APPLICATION_MODAL);
 		
 	}
 
-	public final StringProperty denominacionProperty() {
-		return this.denominacion;
+    public DialogPane getView() {
+		return root;
 	}
-	
 
-	public final String getDenominacion() {
-		return this.denominacionProperty().get();
+	@FXML
+	void onCancelarButton(ActionEvent event) {
+		stage.close();
 	}
-	
 
-	public final void setDenominacion(final String denominacion) {
-		this.denominacionProperty().set(denominacion);
+
+	@FXML
+	void onOkButton(ActionEvent event) {
+
+	stage.close();
+
 	}
-	
 
-	public final StringProperty empleadorProperty() {
-		return this.empleador;
+	public void show() {
+		stage.showAndWait();
 	}
-	
 
-	public final String getEmpleador() {
-		return this.empleadorProperty().get();
+	public ObjectProperty<Experiencia> experienciaProperty() {
+		return this.experiencia;
 	}
-	
 
-	public final void setEmpleador(final String empleador) {
-		this.empleadorProperty().set(empleador);
-	}
-	
-
-	public final ObjectProperty<LocalDate> desdeProperty() {
-		return this.desde;
-	}
-	
-
-	public final LocalDate getDesde() {
-		return this.desdeProperty().get();
-	}
-	
-
-	public final void setDesde(final LocalDate desde) {
-		this.desdeProperty().set(desde);
-	}
-	
-
-	public final ObjectProperty<LocalDate> hastaProperty() {
-		return this.hasta;
-	}
-	
-
-	public final LocalDate getHasta() {
-		return this.hastaProperty().get();
-	}
-	
-
-	public final void setHasta(final LocalDate hasta) {
-		this.hastaProperty().set(hasta);
+	public Experiencia getExperiencia() {
+		return this.experienciaProperty().get();
 	}
 
 	

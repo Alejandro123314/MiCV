@@ -2,41 +2,55 @@ package dad.MiCV.formacion;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
+import dad.MiCV.App;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 
 public class NuevoTituloController implements Initializable {
 
-	StringProperty denominacion = new SimpleStringProperty();
-	StringProperty organizador = new SimpleStringProperty();
-	ObjectProperty<LocalDate> desde = new SimpleObjectProperty<LocalDate>();
-	ObjectProperty<LocalDate> hasta = new SimpleObjectProperty<LocalDate>();
+	ObjectProperty<Titulo> titulo = new SimpleObjectProperty<Titulo>(new Titulo());
 
-	@FXML
-	private TextField denominacionTextField;
 
-	@FXML
-	private DatePicker desdeDatePicker;
+    @FXML
+    private Button cancelarButton;
 
-	@FXML
-	private DatePicker hastaDatePicker;
+    @FXML
+    private TextField denominacionTextField;
 
-	@FXML
-	private TextField organizadorTextField;
+    @FXML
+    private DatePicker desdeDatePicker;
 
-	@FXML
-	private GridPane root;
+    @FXML
+    private DatePicker hastaDatePicker;
+
+    @FXML
+    private Button okButton;
+
+    @FXML
+    private TextField organizadorTextField;
+
+    @FXML
+    private DialogPane root;
+    
+    private Stage stage;
 
 	public NuevoTituloController() {
 
@@ -44,6 +58,8 @@ public class NuevoTituloController implements Initializable {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/NuevoTitulo.fxml"));
 			loader.setController(this);
 			loader.load();
+			
+			
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -51,62 +67,52 @@ public class NuevoTituloController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		denominacion.bind(denominacionTextField.textProperty());
-		organizador.bind(organizadorTextField.textProperty());
-		desde.bind(desdeDatePicker.valueProperty());
-		hasta.bind(hastaDatePicker.valueProperty());
-	}
+		
+		titulo.get().getDenominacion().bind(denominacionTextField.textProperty());
+		titulo.get().getOrganizador().bind(organizadorTextField.textProperty());
+		titulo.get().getDesde().bind(desdeDatePicker.valueProperty());
+		titulo.get().getHasta().bind(hastaDatePicker.valueProperty());
+		
+		okButton.setOnAction(e -> onOkButton(e));
+		cancelarButton.setOnAction(e -> onCancelarButton(e));
+		
+		stage = new Stage();
+		stage.setTitle("Conectar al servidor");
+		stage.setScene(new Scene(getView()));
+		stage.initOwner(App.primaryStage);
+		stage.initModality(Modality.APPLICATION_MODAL);
 
-	public GridPane getRoot() {
+		
+	}
+	
+	public DialogPane getView() {
 		return root;
 	}
 
-	public final StringProperty denominacionProperty() {
-		return this.denominacion;
+	@FXML
+	void onCancelarButton(ActionEvent event) {
+		stage.close();
 	}
 
-	public final String getDenominacion() {
-		return this.denominacionProperty().get();
+
+	@FXML
+	void onOkButton(ActionEvent event) {
+
+	stage.close();
+
 	}
 
-	public final void setDenominacion(final String denominacion) {
-		this.denominacionProperty().set(denominacion);
+	public void show() {
+		stage.showAndWait();
 	}
 
-	public final StringProperty organizadorProperty() {
-		return this.organizador;
+	public ObjectProperty<Titulo> tituloProperty() {
+		return this.titulo;
 	}
 
-	public final String getOrganizador() {
-		return this.organizadorProperty().get();
+	public Titulo getTitulo() {
+		return this.tituloProperty().get();
 	}
 
-	public final void setOrganizador(final String organizador) {
-		this.organizadorProperty().set(organizador);
-	}
-
-	public final ObjectProperty<LocalDate> desdeProperty() {
-		return this.desde;
-	}
-
-	public final LocalDate getDesde() {
-		return this.desdeProperty().get();
-	}
-
-	public final void setDesde(final LocalDate desde) {
-		this.desdeProperty().set(desde);
-	}
-
-	public final ObjectProperty<LocalDate> hastaProperty() {
-		return this.hasta;
-	}
-
-	public final LocalDate getHasta() {
-		return this.hastaProperty().get();
-	}
-
-	public final void setHasta(final LocalDate hasta) {
-		this.hastaProperty().set(hasta);
-	}
 
 }

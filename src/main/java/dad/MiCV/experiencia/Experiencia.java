@@ -13,6 +13,7 @@ public class Experiencia {
 	private ObjectProperty<LocalDate> hasta = new SimpleObjectProperty<>();
 	private StringProperty denominacion = new SimpleStringProperty();
 	private StringProperty empleador = new SimpleStringProperty();
+	
 	public ObjectProperty<LocalDate> getDesde() {
 		return desde;
 	}

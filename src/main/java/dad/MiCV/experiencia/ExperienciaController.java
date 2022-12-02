@@ -94,15 +94,9 @@ public class ExperienciaController implements Initializable {
 	}
 
 	private void aniadir(ActionEvent e) {
-		NuevoTituloController controller = new NuevoTituloController();
-		Dialog<Experiencia> dialogo = new Dialog();
-		dialogo.setTitle("Nueva experiencia");
-		
-		ButtonType aceptarButton = new ButtonType("Crear",ButtonData.OK_DONE);
-		dialogo.getDialogPane().getButtonTypes().addAll(aceptarButton, ButtonType.CANCEL);
-		
-		dialogo.getDialogPane().setContent(controller.getRoot());
-		Optional<Experiencia> resultado = dialogo.showAndWait();
+		NuevaExperienciaController controller = new NuevaExperienciaController();
+		controller.show();
+		experiencias.add(controller.getExperiencia());
 	}
 
 	public GridPane getRoot() {
