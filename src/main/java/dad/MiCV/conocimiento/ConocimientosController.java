@@ -113,5 +113,9 @@ public class ConocimientosController implements Initializable {
 		return root;
 
 	}
+	
+	public ListProperty<Conocimiento> conocimientoProperty(){
+		return conocimientos;
+	}
 
 }

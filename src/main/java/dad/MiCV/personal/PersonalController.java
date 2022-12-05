@@ -29,14 +29,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
 public class PersonalController implements Initializable {
-	
+
 	private ObjectProperty<Personal> personal = new SimpleObjectProperty<Personal>(new Personal());
 	private ObservableList<String> paises = FXCollections.observableArrayList();
 	private StringProperty paisSeleccionado = new SimpleStringProperty();
-	
-	private ListProperty<Nacionalidad> nacionalidades = new SimpleListProperty<>(FXCollections.observableList(new ArrayList<Nacionalidad>()));
+
+	private ListProperty<Nacionalidad> nacionalidades = new SimpleListProperty<>(
+			FXCollections.observableList(new ArrayList<Nacionalidad>()));
 	private ObjectProperty<Nacionalidad> nacionalidadSeleccionado = new SimpleObjectProperty<Nacionalidad>();
-	private ListProperty<Nacionalidad> todasNacionalidades = new SimpleListProperty<>(FXCollections.observableList(new ArrayList<Nacionalidad>()));
+	private ListProperty<Nacionalidad> todasNacionalidades = new SimpleListProperty<>(
+			FXCollections.observableList(new ArrayList<Nacionalidad>()));
 	@FXML
 	private TextField apellidosTextField;
 
@@ -72,7 +74,6 @@ public class PersonalController implements Initializable {
 
 	@FXML
 	private GridPane root;
-	
 
 	public PersonalController() {
 		try {
@@ -86,10 +87,10 @@ public class PersonalController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+
 		todasNacionalidades.add(new Nacionalidad("prueba"));
 		todasNacionalidades.add(new Nacionalidad("prueba2"));
-		//borrar
+		// borrar
 		dniTextField.textProperty().bindBidirectional(personal.get().identificaionProperty());
 		nombreTextField.textProperty().bindBidirectional(personal.get().nombreProperty());
 		apellidosTextField.textProperty().bindBidirectional(personal.get().apellidosProperty());
@@ -97,45 +98,49 @@ public class PersonalController implements Initializable {
 		codigoTextField.textProperty().bindBidirectional(personal.get().codigoPostalProperty());
 		localidadTextField.textProperty().bindBidirectional(personal.get().loacalidadProperty());
 		fechaDatePick.valueProperty().bindBidirectional(personal.get().fechaNacimientoProperty());
-		
+
 		paisComboBox.setItems(paises);
 		paisComboBox.valueProperty().bindBidirectional(paisSeleccionado);
 		paisSeleccionado.bindBidirectional(personal.get().paisProperty());
-		
+
 		personal.get().nacionalidadesProperty().bindBidirectional(nacionalidades);
 		nacionalidaListView.itemsProperty().bind(nacionalidades);
 		nacionalidadSeleccionado.bind(nacionalidaListView.getSelectionModel().selectedItemProperty());
-		
+
 		botonEliminar.setOnAction(e -> eliminar(e));
 		botonAdd.setOnAction(e -> add(e));
 	}
 
 	private void add(ActionEvent e) {
 		ChoiceDialog<Nacionalidad> dialogo = new ChoiceDialog<>(todasNacionalidades.get(0), todasNacionalidades);
-		
+
 		dialogo.setTitle("Nueva Nacionalidad");
 		dialogo.setHeaderText("Añadir nacionalidad");
 		dialogo.setContentText("Seleccione una nacionalidad");
 		Optional<Nacionalidad> resultado = dialogo.showAndWait();
-		if(resultado.isPresent()) {
+		if (resultado.isPresent()) {
 			nacionalidades.add(resultado.get());
 		}
 	}
 
 	private void eliminar(ActionEvent e) {
-		if(nacionalidadSeleccionado.get() != null) {
+		if (nacionalidadSeleccionado.get() != null) {
 			for (int i = 0; i < nacionalidades.size(); i++) {
-				if(nacionalidadSeleccionado.get().getDenominacion().equalsIgnoreCase(nacionalidades.get(i).getDenominacion())) {
+				if (nacionalidadSeleccionado.get().getDenominacion()
+						.equalsIgnoreCase(nacionalidades.get(i).getDenominacion())) {
 					nacionalidades.remove(i);
-				}			
+				}
 			}
-			
+
 		}
 	}
 
 	public GridPane getRoot() {
 		return root;
 	}
-	
+
+	public ObjectProperty<Personal> personalProperty() {
+		return personal;
+	}
 
 }

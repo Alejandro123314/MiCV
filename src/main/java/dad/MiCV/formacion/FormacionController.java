@@ -110,5 +110,9 @@ public class FormacionController implements Initializable {
 		return root;
 
 	}
+	
+	public ListProperty<Titulo> formacionController(){
+		return titulos;
+	}
 
 }

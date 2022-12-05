@@ -103,4 +103,7 @@ public class ExperienciaController implements Initializable {
 		return root;
 	}
 
+	public ListProperty<Experiencia> experienciasProperty() {
+		return experiencias;
+	}
 }

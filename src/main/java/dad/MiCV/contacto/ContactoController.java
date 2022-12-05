@@ -235,5 +235,9 @@ public class ContactoController implements Initializable {
 		return root;
 
 	}
+	
+	public ObjectProperty<Contacto> contactoProperty() {
+		return contacto;
+	}
 
 }
